@@ -68,7 +68,7 @@
 % #3 = Titel der Arbeit
 % #4 = Autor
 % #5 = Abgabedatum
-\renewcommand{\maketitle}[6]
+\renewcommand{\maketitle}[7]
 {
 \pagenumbering{Alph}
 \begin{titlepage}
@@ -87,8 +87,8 @@
 \begin{minipage}{3cm}
     \includegraphics[height=26mm]{includes/UB-Logo-neu_blau-cmyk}
 \end{minipage}
-\end{minipage}\\[130pt]
-{\LARGE #1}\\[124pt]
+\end{minipage}\\[90pt]
+{\LARGE #1}\\[60pt]
 With the topic:\\[24pt]
 {\Huge #2}\\[60pt]
 \vfill
@@ -96,12 +96,13 @@ With the topic:\\[24pt]
 \center
 Submitted by:\\
 {\Large #3\\[12pt]}
+{#4\\[12pt]}
 Supervisor:\\
-{#5\\[12pt]}
+{#6\\[12pt]}
 Examiner:\\
-#6\\[12pt]
+#7\\[12pt]
 Date of submission:\\
-#4\\
+#5\\
 \end{minipage}
 \end{titlepage}
 }
