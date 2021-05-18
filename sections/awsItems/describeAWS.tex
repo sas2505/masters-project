@@ -4,7 +4,7 @@ Amazon Web Services is a subsidiary of Amazon that offers a metered pay-as-you-g
 %
 \subsection{Services needed for CI/CD}
 %
-AWS offers more than 200 products and services, including computing, storage, database, networking, application services, deployment, management, analytics, machine learning, developer tools, and IoT tools. Among these, the most popular are Amazon Elastic Compute Cloud \textbf{(EC2)}, Amazon Simple Storage Service \textbf{(Amazon S3)}, Amazon Elastic Block Store \textbf{(EBS)}, Amazon Connect, and AWS Lambda.
+AWS offers more than 200 products and services, including computing, storage, database, networking, application services, deployment, management, analytics, machine learning, developer tools, and IoT tools. Among these, the most popular are Amazon Elastic Compute Cloud \textbf{(EC2)}, Amazon Simple Storage Service \textbf{(Amazon S3)}, Amazon Elastic Block Store \textbf{(EBS)}, Amazon Connect, and AWS Lambda. Down below, a brief description of the AWS services related to CI/CD is given\footnote{https://aws.amazon.com/products/developer-tools/?nc2=h\textunderscore ql\textunderscore prod\textunderscore dt}. 
 
 \subsubsection{Amazon Elastic Computing Cloud (EC2)}
 %
@@ -45,7 +45,7 @@ AWS CloudFormation gives us an easy way to model a collection of related AWS and
 \subsection{CI-CD Process}
 %
 The following example uses two separate AWS accounts for development and production.
-In summary, the example has the following workflow:
+In summary, the example has the following workflow\footnote{https://aws.amazon.com/blogs/devops/complete-ci-cd-with-aws-codecommit-aws-codebuild-aws-codedeploy-and-aws-codepipeline/}:
 
 \begin{enumerate}
     \item A change or commit to the code in the CodeCommit application repository triggers CodePipeline with the help of a CloudWatch event.
@@ -66,9 +66,40 @@ The following diagram illustrates the workflow:
     \label{fig:aws_cicd}
 \end{figure}
 
-
-
 %
+
+\subsection{Estimated Cost}
+%
+The total cost of running a CI/CD pipeline on AWS depends on the AWS services used in your pipeline. Monthly charges will vary on your configuration and usage of each product, but if we use all the AWS services mentioned above and accept the default configurations, we can expect to be billed around \$15 per month.
+%
+
 \subsection{Advantages}
 %
+Companies and individuals prefer AWS as their cloud provider because of the numerous AWS benefits it provides.
+
+\begin{itemize}
+    \item \textbf{User-friendly:} AWS is easy to use as the platform is specially designed for quick and secure access.There won’t be any problem for a new applicant as well as for an existing applicant.
+    \item \textbf{Cost-effective:} AWS offers a pay-as-you-go pricing method, which means that a company will only pay for the services that it needs and has used for a period of time.
+    \item \textbf{Scalable and Elastic:} AWS is scalable because the AWS Auto Scaling service automatically increases the capacity of constrained resources as per requirements so that the application is always available. If you use fewer resources and you don’t need the rest of them, then AWS itself shrinks the resources to fit your requirement.
+    \item \textbf{Scope of operations: } AWS has a huge and growing array of available services, as well as the most comprehensive network of worldwide data centers.
+    
+\end{itemize}
+The Gartner report summed it up, saying, “AWS is the most mature, enterprise-ready provider, with the deepest capabilities for governing a large number of users and resources.”
+
+
+%
+
+
 \subsection{Disadvantages}
+These are the limitations of Amazon Web Services:
+\begin{itemize}
+    \item \textbf{Complex Price Plans:} Amazon’s big weakness relates to cost. While AWS regularly lowers its prices, many enterprises find it difficult to understand the company’s cost structure and to manage those costs effectively when running a high volume of workloads on the service\footnote{https://www.datamation.com/cloud/aws-vs-azure-vs-google-cloud/}.
+    \item \textbf{Limitations OF Amazon EC2:} AWS sets default limits on resources which vary from region to region. These resources consist of images, volumes, and snapshots. You can launch the limited number of instance per area. It also provides limited information for the resources managed by Amazon EC2and Amazon VPC console\footnote{https://data-flair.training/blogs/aws-advantages/}. 
+    \item \textbf{Technical Support Fee:} AWS charges you for immediate support and you can opt for any packages among 3 which are- \textbf{ Developer}, \textbf{Business}, \textbf{Enterprise}
+    \item \textbf{Complex Organisation:} AWS can be overwhelming with the vast amount of services they provide. It can be tough to pick the right option to fit the goal you're trying to accomplish
+
+\end{itemize}
+
+
+
+
