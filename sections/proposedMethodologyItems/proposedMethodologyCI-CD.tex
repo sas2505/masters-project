@@ -1,3 +1,17 @@
 Describe process or implementation concepts for every steps of CI-CD by the tool. (Conceptual description)
+In this section the different steps will be discussed for CI-CD implementation.
+\subsection{Version Control}
+At first the version control is needed to organize the code changes, configuration scripts and documetations. For this \textbf{Git} will be our version control team. It is very well established in software release processes now-a-days. Popualar version control tools like \textbf{GitHub, GitLab, Azure Repos Git or Bitbucket Cloud} can be used in this case almost all the CI-CD on cloud tool gives the facilation of these tools as well.
+\subsection{Build Tool}
+Another important tool is to build the application in CI-CD process. This tool will help the project to create artificates and resolve dependency by it's own. One of these \textbf{Gradle, Maven} two build tool will be used in our CI-CD implemantation.
+\subsection{Deployment Target}
+Azure Pipelines can be used to deploy project code to multiple targets. such as, container registries, virtual machines, Azure services, or any on-premises or cloud target.
+The publised project code is needed to be deployed in a manner so that it can be delivered to he clients with minimal effort. That's why docker images is used greatly at the present. And for this we can use service like \textbf{Azure DevOps, CodeDeploy and Cloud Build} to create deployment target. Azure Devops usage will help the project development team to deploy it to different services like aws management console and google cloud platform as well as its own service, Azure Portal.
+\subsection{Configuration Scripts}
+For CI-CD implementation one of the main part is configuration scripts.
+
+Azure resource manager, chef, ansible, terraform.
+
+Security
 
 How to integrate Iac, Testing and Security on the proposed CI-CD pipeline methodology.

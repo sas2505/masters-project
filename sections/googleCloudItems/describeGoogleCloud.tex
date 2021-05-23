@@ -43,12 +43,9 @@ At a high level, the CI/CD pipeline consists of following steps:
     \caption{Workflow of CI/CD pipeline in GCP.} 
     \label{fig:gcp_cicd}
 \end{figure}
-
-
-
-\newline\newline\newline
+%
 We can see in the figure~\ref{fig:gcp_cicd},  the deployments to the test and production environments are separated into two different cloud Build pipelines- a test and a production pipeline.\footnote{https://cloud.google.com/architecture/cicd-pipeline-for-data-processing\#the\_cicd\_pipeline} 
-\newline\newline     In the preceding diagram, the test pipeline consists of the following steps: 
+\newline     In the preceding diagram, the test pipeline consists of the following steps: 
 \begin{enumerate}
     \item A developer commits code changes to the Cloud Source Repositories. 
     \item Code changes trigger a test build in cloud build.
@@ -59,7 +56,7 @@ We can see in the figure~\ref{fig:gcp_cicd},  the deployments to the test and pr
     \item The workflow DAG file is deployed to Cloud Composer 
     \item Cloud Build triggers the newly deployed data-processing workflow to run. 
 \end{enumerate}
-\newline
+
 In the preceding diagram, the production pipeline consists of the following steps: 
 \begin{enumerate}
     \item A Developer manually runs the production deployment pipeline in Cloud Build.
