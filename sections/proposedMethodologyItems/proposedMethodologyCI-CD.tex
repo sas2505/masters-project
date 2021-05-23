@@ -8,7 +8,25 @@ Another important tool is to build the application in CI-CD process. This tool w
 Azure Pipelines can be used to deploy project code to multiple targets. such as, container registries, virtual machines, Azure services, or any on-premises or cloud target.
 The publised project code is needed to be deployed in a manner so that it can be delivered to he clients with minimal effort. That's why docker images is used greatly at the present. And for this we can use service like \textbf{Azure DevOps, CodeDeploy and Cloud Build} to create deployment target. Azure Devops usage will help the project development team to deploy it to different services like aws management console and google cloud platform as well as its own service, Azure Portal.
 \subsection{Configuration Scripts}
-For CI-CD implementation one of the main part is configuration scripts.
+For CI-CD implementation one of the main part is configuration scripts. For different services setup this scripts are used to handle the automation process. For example, if Azure Devops is used as a CI-CD tool than following scripts need to be configured.
+\begin{itemize}
+     \item To define a workflow that describes how test, build, and deployment steps are run.
+     \item The seperations of concerns is maintained such as Dev, Staging and Prod is maintained on the sripts.
+     \item The scripts are mainly consists of different tasks and every task is responsible for specific job execution.
+     \item This scripts will be controlled by some kind of agents or agent pool to maintain order in between the tasks.
+     \item On the sripts differernt environment will be defined to execute the scripts on correct environment.
+     \item In the end, the scripts will be run on the tool to execute every described task.
+     \item Additionally trigger is also used to tell the pipeline when to run the scripts.
+\end{itemize}
+This scripts are created and kept on the version control to use further on the development.
+\subsection{Testing}
+It is one of the main part for CI-CD automation. expecially for continuous integration. This part will determine the code changes are deliverable or not. That's why unit testing, Integration testing, acceptance testing and regresion testing are integrated in the CI-CD automate release process. To automate testing the following concepts need to be used in the project.
+\begin{itemize}
+	\item \textbf{Test Frmaework}: Test framwork is to organise the test cases, test plan and coverages. \textbf{TestNG} is widely used for java based application. Test Framework will provide a detailed report after each execution to give an overview for test execution.
+	\item \textbf{Test Automation tool}: To automatically run the application based on the test case automate testing tool is needed. For web based application \textbf{Selenium} is widely populer due it's cross browser platform facilation.
+	\item \textbf{Reporting Tool}: Some kind of reporting tool can also be used in the testing automation. This tool will generate a formatized report and more presentable to the user. Some popular reporting tools are \textbf{ReportNG, Extent Report}. Additionally, this is an optional part since test framwork can handle it by itself.
+\end{itemize}
+This testing will need to be integrated in the CI-CD as a idependent jobs or part of their process as well. In most cases Unit Testing are integrated as part of CI-CD to capture big issue at the begining with less execution time.
 
 Azure resource manager, chef, ansible, terraform.
 
