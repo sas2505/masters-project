@@ -1,13 +1,141 @@
 \subsection{Definition}
 %
+One of the best practices for devops teams to follow is the CI/CD pipeline, which allows them to deliver code updates more frequently and efficiently.
+
+
+Continuous integration (CI) and continuous delivery (CD) are two concepts that describe a culture, set of operating principles, and set of practices that allow application development teams to produce code changes more frequently and consistently. The CI/CD pipeline is another name for the implementation.
+
+Development teams can develop, prototype, deploy, and run applications in a continuous process using automation and virtualization. This is faster than releasing big batches of updates and patches all at once. It also ensures that apps are published faster, are more up-to-date, and have improved security and scalability, all of which are important aspects of agile networking.
+
+“Continuous integration is a coding philosophy and set of practices that drive development teams to implement small changes and check in code to version control repositories frequently. Because most modern applications require developing code in different platforms and tools, the team needs a mechanism to integrate and validate its changes.”\footnote{https://www.infoworld.com/article/3271126/what-is-cicd-continuous-integration-and-continuous-delivery-explained.html}
+
+%
 \subsection{Components}
+%
+A CI/CD pipeline is made up of distinct subsets of tasks that are organized into pipeline components. The following are most common pipeline components:
+
+\textbf{Development}
+
+
+The component at which the application is put together. For possible deployment, source code must be built and packaged. To automate this step of the CI/CD pipeline, a variety of continuous integration tools are available. Since the deployable units are language-dependent, the build tools for the languages used in the deployable units must be named and performed. If you're using JAVA, for example, you'll need to use Maven or Gradle to build a JAVA distribution. A packaging phase may include the automated build elements. Taking the JAVA example a step further, if a Docker Image of the JAVA app is needed, the required Docker Compose steps must be called. Build-centric tests, such as unit tests and dependency scanning, can be performed in the build components.\footnote{https://harness.io/blog/continuous-delivery/ci-cd-pipeline/}
+
+
+Compilation is required for programs written in languages like Java, C/C++, or Go, while Ruby, Python, and JavaScript do not. Cloud-native software is usually deployed with Docker, so this stage of the CI/CD pipeline creates Docker containers, regardless of the language. Failure to pass the construct stage indicates a fundamental problem.\footnote{https://semaphoreci.com/blog/cicd-pipeline}
+
+
+\textbf{Testing}
+
+
+This is the section where the code is put to the test. Automation will save both time and effort in this situation. Enhances personal trust is a big aim of most pipelines. Running tests is the standard method for imparting trust in apps. Test elements come in a variety of sizes and shapes. CI/CD pipelines are natural places to perform experiments as consistency gates as test methodologies evolve. Tests that include the whole application, such as integration tests, soak tests, load tests, and regression tests, are natural fits in addition to build-centric tests. Modern research methods, such as Chaos Engineering, can also be used at the infrastructure level.\footnote{https://harness.io/blog/continuous-delivery/ci-cd-pipeline/}
+
+This is an overnight procedure in which practical checks, security scans, and consistency tests are run on the software's most recent successful build. The new containers will be installed in the continuous testing environment using the most recent docker images prior to the test execution. As a condition for testing, the Kubernetes cluster's persistent volumes will be restored. It's worth noting that all of these tasks are pre-planned and fully automated. The next morning, prior to the regular standup meetings, the test report is reviewed. The quality assurance team would address any scripting problems, and the production team would fix any programming issues. CT failures are a top priority, and they will be addressed as soon as possible.\footnote{https://cinglevue.com/how-to-build-an-efficient-ci-cd-pipeline/}
+
+\textbf{Release}
+
+
+Release components are the individual implementations that help achieve Continuous Implementation. If you have a rolling, blue-green, or canary deployment in mind? The orchestration will be handled by release elements in your CI/CD pipeline.
+
+
+\hspace{10mm} \textbf{Rolling Deployment}
+
+
+\hspace{10mm} A rolling rollout is a release technique that updates operating instances in a sequential manner. To elaborate, the old framework version is decommissioned, and a new one is installed in its place before all nodes in the series have been replaced.
+
+
+\hspace{10mm} \textbf{Blue-Green Deployment}
+
+
+\hspace{10mm} A blue-green deployment is a risk-averse release technique. With two concurrent models of development going, the new release (blue) will gradually overtake the stable version (green), with the stable version remaining operational until it is considered safe to repurpose or decommission it. Rollbacks are much simpler when blue-green deployments are used.
+
+
+\hspace{10mm} \textbf{Canary Deployment}
+
+
+\hspace{10mm} A canary deployment is an evolutionary update approach in which a new upgrade (the canary) is gradually rolled out before the current version is replaced. Canary deployments are carried out in stages. For eg, the first phase would swap 10\% of the nodes, and if successful, the second phase would swap 50\% of the nodes, and the third phase would swap 100\% of the nodes. The stability they offer during a release, as well as the fact that they use less resources than a blue-green deployment, are the key reasons for implementing canary deployments. Canary deployments, on the other hand, can be complicated due to the validation needed to promote canaries.\footnote{https://harness.io/blog/continuous-delivery/ci-cd-pipeline/}
+
+
+\textbf{Deployment}
+
+The implementation is simplified since most of the hard work has already been completed in the previous three stages. A release can be completed at any time, with the only qualification being a successful CT period. The scripts for the release must,
+
+\hspace{10mm} -The related version number should be added to the docker images.
+
+
+\hspace{10mm} -The source repositories should be tagged with the version number.
+
+The release will now be implemented in the release pipeline's other environments. The decision to promote the release to the production will ultimately be a business decision. The deployment phase would be simplified with a docker + kubernetes configuration, and the results would be consistent in all environments.\footnote{https://cinglevue.com/how-to-build-an-efficient-ci-cd-pipeline/}
+
+
 %
 \subsection{CI-CD on Cloud}
 %
+Although cloud computing has multiple meanings, the most basic definition is a framework that allows and facilitates the provisioning of resources. As a result, it can be represented as code or models, making it easier to create repeatable procedures. DevOps' core philosophy is to automate as much as possible the processes/tasks in the software development life cycle. 
+
+The efficient structure of cloud computing is one of the most significant advantages of cloud for CI/CD. This is ideal for CI/CD workloads, which are ephemeral and burst. Cloud services can scale up and down dynamically in response to CI/CD workloads. For enterprises, this provides significant management and cost savings. Enterprise firms do not need to run their own servers, but they do need to scale up as CI/CD workloads grow, and they don't want to spend server resources when they're not in use.
+
+A public cloud is one in which the cloud provider hosts all the software and data for the enterprise. Employees who work with a business that uses public cloud can access the applications with only an internet connection. When an organization's computing, compute, and networking services are located in a provider's data center, it is referred to as a private cloud. When it comes to operating software, companies choose private cloud for security and storing extremely sensitive data. 
+
+The hybrid cloud is a more modern approach that combines private and public cloud services. Organizations may make changes based on traffic and demand considerations. Some consumers may have their own CI/CD systems on their premises. In a hybrid setup, any of these CI/CD systems may extend their workloads to the cloud. This would encourage them to reap the benefits of cloud computing without having to make a full migration.
+
+Workloads can be run in the public cloud when there is a lot of demand, and then returned to the private cloud when things calm down. This method decreases the amount of money spending on cloud services. Furthermore, classified documents, records, and essential programs can all be stored in the private cloud. Less confidential data and programs, on the other hand, can be maintained and run in the public cloud.\footnote{https://devops.com/cloud-and-devops-ci-cd-and-market-analysis/}
+%
 \subsection{Different Tools for CI-CD on Cloud}
+%
+Different Tools for CI-CD on Cloud:
+   \begin{itemize}
+     \item Azure DevOps
+     \item AWS
+     \item Google Cloud
+   \end{itemize}
+
+
 %
 \subsubsection{Azure DevOps}
 %
+
+Microsoft's Azure DevOps framework is a Software as a Service (SaaS) platform that offers a complete DevOps toolchain for designing and deploying software. It also interfaces with the majority of popular tools, making it an excellent option for orchestrating a DevOps toolchain. Many of our customers at DevOpsGroup have discovered that Azure DevOps meets their needs, regardless of their language or platform. Many of our customers at DevOpsGroup have discovered that Azure DevOps meets their needs, regardless of their language, platform, or cloud.
+
+
+Despite its October 2018 debut, Azure DevOps is not a newcomer to the DevOps scene. Its ancestors can be tracked all the way back to the 2006 release of Visual Studio Team System. Microsoft has over 80,000 internal customers for this advanced platform with a diverse feature set.
+
+
+Azure Devops is not designed for organizations that use Microsoft or Windows end-to-end. Azure DevOps is a tool that allows you to:
+
+
+Flexible
+
+
+There's no need to go all-in on Azure DevOps. Any of the services can be adopted separately and integrated into the current toolchain; the most common tools are
+
+Platform agnostic
+
+
+crafted to run on every computer (Linux, MacOS, and Windows) and with any language (including Node.js, Python, Java, PHP, Ruby, C/C++,.Net, Android, and iOS apps). Azure DevOps isn't just about companies who develop and launch software. Code for the internet.
+
+Cloud Agnostic
+
+
+AWS and GCP, as well as Azure, enable continuous distribution.\footnote{https://www.devopsgroup.com/insights/resources/tutorials/all/what-is-azure-devops/}
+
+
+%
 \subsubsection{AWS}
 %
+
+AWS CodePipeline is a professionally automated continuous distribution service that assists you in automating the release pipelines for fast and stable device and infrastructure updates. Based on the release model you define, CodePipeline automates the develop, test, and deploy phases of your release process any time there is a code update. This allows you to offer features and upgrades quickly and consistently. AWS CodePipeline can be seamlessly integrated with third-party platforms like GitHub or your own custom plugin. You just pay for what you use with AWS CodePipeline. There are no hidden costs or long-term obligations.
+
+
+Advantages
+•	Rapid delivery
+•	Configurable workflow
+•	Get started fast
+•	Easy to integrate\footnote{https://aws.amazon.com/codepipeline/}
+
+
+%
 \subsubsection{Google Cloud}
+%
+In the public cloud industry, Google Cloud Platform is one of the most common cloud providers. It offers a variety of managed services, and it makes sense to use Google Cloud's managed CI/CD software if you're solely using Google Cloud.\footnote{https://medium.com/swlh/how-to-ci-cd-on-google-cloud-platform-1e631cded335}
+
+
+%
