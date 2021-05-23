@@ -14,7 +14,7 @@ Development teams can develop, prototype, deploy, and run applications in a cont
 %
 A CI/CD pipeline is made up of distinct subsets of tasks that are organized into pipeline components. The following are most common pipeline components:
 
-\textbf{Development}
+\subsubsection{Development}
 
 
 The component at which the application is put together. For possible deployment, source code must be built and packaged. To automate this step of the CI/CD pipeline, a variety of continuous integration tools are available. Since the deployable units are language-dependent, the build tools for the languages used in the deployable units must be named and performed. If you're using JAVA, for example, you'll need to use Maven or Gradle to build a JAVA distribution. A packaging phase may include the automated build elements. Taking the JAVA example a step further, if a Docker Image of the JAVA app is needed, the required Docker Compose steps must be called. Build-centric tests, such as unit tests and dependency scanning, can be performed in the build components.\footnote{https://harness.io/blog/continuous-delivery/ci-cd-pipeline/}
@@ -23,38 +23,26 @@ The component at which the application is put together. For possible deployment,
 Compilation is required for programs written in languages like Java, C/C++, or Go, while Ruby, Python, and JavaScript do not. Cloud-native software is usually deployed with Docker, so this stage of the CI/CD pipeline creates Docker containers, regardless of the language. Failure to pass the construct stage indicates a fundamental problem.\footnote{https://semaphoreci.com/blog/cicd-pipeline}
 
 
-\textbf{Testing}
+\subsubsection{Testing}
 
 
 This is the section where the code is put to the test. Automation will save both time and effort in this situation. Enhances personal trust is a big aim of most pipelines. Running tests is the standard method for imparting trust in apps. Test elements come in a variety of sizes and shapes. CI/CD pipelines are natural places to perform experiments as consistency gates as test methodologies evolve. Tests that include the whole application, such as integration tests, soak tests, load tests, and regression tests, are natural fits in addition to build-centric tests. Modern research methods, such as Chaos Engineering, can also be used at the infrastructure level.\footnote{https://harness.io/blog/continuous-delivery/ci-cd-pipeline/}
 
 This is an overnight procedure in which practical checks, security scans, and consistency tests are run on the software's most recent successful build. The new containers will be installed in the continuous testing environment using the most recent docker images prior to the test execution. As a condition for testing, the Kubernetes cluster's persistent volumes will be restored. It's worth noting that all of these tasks are pre-planned and fully automated. The next morning, prior to the regular standup meetings, the test report is reviewed. The quality assurance team would address any scripting problems, and the production team would fix any programming issues. CT failures are a top priority, and they will be addressed as soon as possible.\footnote{https://cinglevue.com/how-to-build-an-efficient-ci-cd-pipeline/}
 
-\textbf{Release}
+\subsubsection{Release}
 
 
-Release components are the individual implementations that help achieve Continuous Implementation. If you have a rolling, blue-green, or canary deployment in mind? The orchestration will be handled by release elements in your CI/CD pipeline.
+Release components are the individual implementations that help achieve Continuous Implementation. If you have a rolling, blue-green, or canary deployment in mind? The orchestration will be handled by release elements in your CI/CD pipeline.\footnote{https://harness.io/blog/continuous-delivery/ci-cd-pipeline/}
+
+   \begin{itemize}
+     \item \textbf{Rolling Deployment} :  A rolling rollout is a release technique that updates operating instances in a sequential manner. To elaborate, the old framework version is decommissioned, and a new one is installed in its place before all nodes in the series have been replaced.
+     \item \textbf{Blue-Green Deployment} : A blue-green deployment is a risk-averse release technique. With two concurrent models of development going, the new release (blue) will gradually overtake the stable version (green), with the stable version remaining operational until it is considered safe to repurpose or decommission it. Rollbacks are much simpler when blue-green deployments are used.
+     \item \textbf{Canary Deployment} :  A canary deployment is an evolutionary update approach in which a new upgrade (the canary) is gradually rolled out before the current version is replaced. Canary deployments are carried out in stages. For eg, the first phase would swap 10\% of the nodes, and if successful, the second phase would swap 50\% of the nodes, and the third phase would swap 100\% of the nodes. The stability they offer during a release, as well as the fact that they use less resources than a blue-green deployment, are the key reasons for implementing canary deployments. Canary deployments, on the other hand, can be complicated due to the validation needed to promote canaries.
+   \end{itemize}
 
 
-\hspace{10mm} \textbf{Rolling Deployment}
-
-
-\hspace{10mm} A rolling rollout is a release technique that updates operating instances in a sequential manner. To elaborate, the old framework version is decommissioned, and a new one is installed in its place before all nodes in the series have been replaced.
-
-
-\hspace{10mm} \textbf{Blue-Green Deployment}
-
-
-\hspace{10mm} A blue-green deployment is a risk-averse release technique. With two concurrent models of development going, the new release (blue) will gradually overtake the stable version (green), with the stable version remaining operational until it is considered safe to repurpose or decommission it. Rollbacks are much simpler when blue-green deployments are used.
-
-
-\hspace{10mm} \textbf{Canary Deployment}
-
-
-\hspace{10mm} A canary deployment is an evolutionary update approach in which a new upgrade (the canary) is gradually rolled out before the current version is replaced. Canary deployments are carried out in stages. For eg, the first phase would swap 10\% of the nodes, and if successful, the second phase would swap 50\% of the nodes, and the third phase would swap 100\% of the nodes. The stability they offer during a release, as well as the fact that they use less resources than a blue-green deployment, are the key reasons for implementing canary deployments. Canary deployments, on the other hand, can be complicated due to the validation needed to promote canaries.\footnote{https://harness.io/blog/continuous-delivery/ci-cd-pipeline/}
-
-
-\textbf{Deployment}
+\subsubsection{Deployment}
 
 The implementation is simplified since most of the hard work has already been completed in the previous three stages. A release can be completed at any time, with the only qualification being a successful CT period. The scripts for the release must,
 
